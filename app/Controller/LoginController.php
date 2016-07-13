@@ -4,15 +4,24 @@ namespace Controller;
 
 use \W\Controller\Controller;
 
-class DefaultController extends Controller
+class LoginController extends Controller
 {
 
-	/**
-	 * Page d'accueil par défaut
-	 */
-	public function home()
+
+	public function connexion()
 	{
-		$this->show('default/home');
+		$this->show('login/connexion');
+	}
+
+	public function inscription()
+	{
+		$this->show('login/inscription');
+	}
+
+	public function deconnexion()
+	{
+		unset($_SESSION['user']);
+		$this->redirectToRoute('home');
 	}
 
 }
