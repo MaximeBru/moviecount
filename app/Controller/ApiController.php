@@ -27,7 +27,7 @@ class ApiController extends Controller
 			$results = (array)$tab['results']; 
 			foreach ($results as $film) {
 				// echo $film->id, $film->title;
-				$manager->insert(['moviedb_id' => $film->id, 'titre' => $film->title]);
+				$manager->insert(['id_film_api' => $film->id, 'titre' => $film->title]);
 			}
 		}
 		$this->show('default/home');
