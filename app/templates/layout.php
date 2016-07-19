@@ -19,8 +19,8 @@
 			</div>
 			<div id="coIns">
 				<ul>
-					<li><a href="#">connexion</a></li>
-					<li><a href="#">inscription</a></li>
+					<li><a href="<?= $this->url('connexion') ?>">connexion</a></li>
+					<li><a href="<?= $this->url('inscription') ?>">inscription</a></li>
 				</ul>
 			</div>
 			<div id="searchNav">
