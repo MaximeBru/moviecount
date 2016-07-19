@@ -16,6 +16,11 @@ a {
 	color: #fff;
 }
 
+li {
+	list-style-type: none; 
+
+}
+
 section{
 	margin-bottom: 2rem;
 	background-color: #292b30;
@@ -35,21 +40,22 @@ nav{
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#00B4C5, Direction=180, Strength=0);
 
 }
+
 nav div{
 	display: inline-block;
 }
 
 nav a{
 	color: #b1b1b1;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.1rem;
+
 }
-
-
 
 #logoNav{
-	width: 30%;
+	width: 40%;
 
 }
-
 
 nav input{
 	-webkit-border-radius: 100px;
@@ -63,8 +69,9 @@ nav label{
 }
 
 #searchNav{
-	right: 2rem;
+	right: 4rem;
     position: absolute;
+
 }
 
 nav form i {
@@ -95,6 +102,8 @@ h2{
 	color: #00b4c5;
 	margin-bottom: 1rem;
 	padding-bottom: 1rem;
+	text-transform: uppercase;
+
 	/* ==== SHADOW ==== */
 	-moz-box-shadow: 0px 1px 0px 0px #00b4c5;
 	-webkit-box-shadow: 0px 1px 0px 0px #00b4c5;
@@ -105,15 +114,37 @@ h2{
 }
 
 h3{
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
 	margin-bottom: 2rem;
 }
 
+h3 span {
+	float: right;
+	font-style: italic;
+	font-weight: 300;
+	color: #b1b1b1;
+}
+
+h4{
+	color: #b1b1b1;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 1.5rem;
+}
+
+p{
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 1.2rem;
+	font-style: italic;
+}
+
 section{
 	max-width: 115rem;
-	padding: 4rem;
+	padding: 3rem;
 	margin: auto;
 	margin-bottom: 3rem;
 }
@@ -158,16 +189,172 @@ article a:first-of-type{
 	margin-bottom: 1rem;
 }
 /*------------------*/
+
+
+/*div pour gerer les sections*/
+#SorAct{
+	position: relative;
+	left: 1rem;
+	max-width: 123rem;
+	margin: auto;
+}
+
+#SorAct section{
+	display: inline-block;
+	    vertical-align: top;
+}
+
+#SorAct article{
+	width: 30%;
+}
+
+.video-container {
+	width: 69%;
+	margin-right: 0.4rem;
+}
+
+.video-container, #SidVid, #vidBtn {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#vidBtn {
+}
+
+.video-container iframe {
+    width: 97%;
+    height: 27rem;
+}
+
+/*section avec la video*/
 #lastRealease{
-	width: 70%;
+	width: 58%;
+	margin-right: 3rem;
+	display: inline;
+
 }
 
 #filmVideo{
 	width: 50%;
 }
 
-
-@media screen and (min-width: 720px){
-
-	
+#lastRealease #SidVid p:nth-child(2) {
+	margin-bottom: .9rem;
 }
+
+#lastRealease #SidVid p:nth-child(6) {
+	margin-bottom: .9rem;
+}
+
+#SidVid a {
+	display: inline-block;
+    margin-top: 1.2rem;
+}
+
+/* DERNIER ACTIVITEES COMMUNAUTES*/
+
+#activity{
+	width: 28%;
+}
+
+#activity h2 {
+	font-size: 1.9rem;
+}
+
+#activity li {
+	color: #fff;
+	font-size: 1.2rem;
+}
+
+#activity li span{
+	color: #b1b1b1;
+}
+
+
+/**/
+
+main li{
+	margin-top: 3rem;
+	margin-bottom: 1.8rem;
+}
+
+main li p{
+	font-size: 1.7rem;
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	text-align: justify-all;
+}
+
+main li p span{
+	font-size: 1.7rem;
+	font-family: 'Roboto', sans-serif;
+	font-style: italic;
+	color: #b1b1b1;
+	font-weight: 300;
+}
+
+#Disco{
+	width: 60%;
+}
+#Disco article{
+    display: inline-block;
+    width: 28%;
+    text-align: center;
+
+}
+
+#Disco article:not(:last-of-type){
+	margin-right: 5.9rem;
+}
+
+
+#Disco article img{
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+#TopDisc{
+	position: relative;
+	left: 1rem;
+	max-width: 123rem;
+	margin: auto;
+}
+
+#TopDisc section{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#TopCom li{
+	margin-top: 2.9rem;
+	margin-bottom: 1.4rem;
+}
+
+#TopCom{
+	margin-right: 3.5rem;
+}
+
+/*#Disco article {
+	margin-right: 5.5rem;
+}*/
+
+footer {
+	background-color: #121317;
+    padding: 2rem;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;	
+    /* SHADOW */
+    -moz-box-shadow: 0px -1px 0px 0px #00B4C5;
+	-webkit-box-shadow: 0px -1px 0px 0px #00B4C5;
+	-o-box-shadow: 0px -1px 0px 0px #00B4C5;
+	box-shadow: 0px -1px 0px 0px #00B4C5;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#00B4C5, Direction=90, Strength=0);
+
+}
+
+/*@media screen and (min-width: 720px){
+
+}*/
