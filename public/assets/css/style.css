@@ -92,7 +92,7 @@ main img{
 main a {
 	background-color: #00B4C5;
 	font-family: 'Roboto', sans-serif;
-	padding: 1rem 4rem;	
+	padding: 0.8rem 3.7rem;	
 	font-size: 1.5rem;
 }
 
@@ -117,7 +117,7 @@ h3{
 	font-size: 1.8rem;
 	color: #ffffff;
 	font-family: 'Roboto', sans-serif;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 }
 
 h3 span {
@@ -150,14 +150,14 @@ section{
 }
 
 article a:first-of-type{
-	margin-right: 1.4rem;
+	margin-right: 2rem;
 }
 
 
 
 #newFilm article{
     display: inline-block;
-    width: 17.9%;
+    width: 17.7%;
     text-align: center;
 }
 
@@ -201,7 +201,7 @@ article a:first-of-type{
 
 #SorAct section{
 	display: inline-block;
-	    vertical-align: top;
+	vertical-align: top;
 }
 
 #SorAct article{
@@ -244,6 +244,10 @@ article a:first-of-type{
 
 #lastRealease #SidVid p:nth-child(6) {
 	margin-bottom: .9rem;
+}
+
+#lastRealease #SidVid p:nth-child(8) {
+	margin-bottom: 1rem;
 }
 
 #SidVid a {
@@ -355,6 +359,13 @@ footer {
 
 }
 
+/*______________________________PAGE DE PROFIL!!!!!!!________________________*/
+
+
+
+#imgDeProfil{
+	width: 50%;
+}
 /*@media screen and (min-width: 720px){
 
 }*/
