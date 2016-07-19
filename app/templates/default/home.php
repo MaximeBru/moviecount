@@ -7,7 +7,7 @@
 	<?php foreach ($top5 as $film): ?>
 		<article>
 			<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
-			<h3><?= $film['titre'] ?></h3>
+			<h3><?= mb_strimwidth($film['titre'], 0, 24, "...") ?></h3>
 			<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 			<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
 		</article>
@@ -62,6 +62,14 @@
 	<!-- section top 5 ajout a la liste vu -->
 	<section id="newFilm2">
 		<h2>top5 ajout a la liste vu</h2>
+		<?php foreach ($top5Vu as $film): ?>
+		<article>
+			<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
+			<h3><?= mb_strimwidth($film['titre'], 0, 24, "...") ?></h3>
+			<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+			<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+		</article>
+	<?php endforeach ?>
 	</section>
 
 	<div id="TopDisc">
