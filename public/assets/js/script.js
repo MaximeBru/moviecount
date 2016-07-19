@@ -37,7 +37,8 @@ $(document).ready (function(){
 
 $.ajax({
 
-			url:'http://api.themoviedb.org/3/discover/movie?language=fr&api_key=a2992ed9d3f8b932cc90a57972f676dc',
+			//url:'http://api.themoviedb.org/3/discover/movie?language=fr&api_key=a2992ed9d3f8b932cc90a57972f676dc',
+			url:'http://moviecount.net/api/?language=fr&api_key=a2992ed9d3f8b932cc90a57972f676dc',
 			type:'GET',
 			dataType: 'json',
 

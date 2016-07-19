@@ -18,10 +18,17 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
-		//$manager = new FilmManager();
+		$manager = new FilmManager();
+		$top5 = $manager->getTopFilm();
+		$top5Vu = $manager->topListeVu();
+		//var_dump($top5Vu);die();
+		$lastActivity =$manager->lastActivity();
+		
+		$this->show('default/home', ['top5'=>$top5, 'top5Vu'=>$top5Vu, 'lastActivity'=>$lastActivity]);
+
 		//$cinq_films = $manager->getRandomFilms(5);
 		//$this->show('default/home',['cinq_films'=>$cinq_films]);
-		$this->show('default/home');
+		
 	}
 
 	public function recherche()
