@@ -15,12 +15,24 @@
 	<header>
 		<nav>
 			<div id="logo">
-				<li><a href="#" ><h1><img id="logoNav" src="<?= $this->assetUrl('img/logo.svg') ?>"></h1></a></li>
+				<li><a href="<?= $this->url('home') ?>"><h1><img id="logoNav" src="<?= $this->assetUrl('img/logo.svg') ?>"></h1></a></li>
 			</div>
 			<div id="coIns">
 				<ul>
-					<li><a href="<?= $this->url('connexion') ?>">connexion</a></li>
-					<li><a href="<?= $this->url('inscription') ?>">inscription</a></li>
+					<?php
+					
+						if (!isset($_SESSION['user'])){ 
+						echo '<li><a href="'. $this->url('connexion').'">connexion</a></li>';
+						echo '<li><a href="' . $this->url('inscription'). '">inscription</a></li>';
+					} else {
+
+						echo '<li><a href="'. $this->url('profil',['id'=>$_SESSION['user']['id']]).'">profil</a></li>';
+						echo '<li><a href="' . $this->url('deconnexion'). '">deconnexion</a></li>';
+						echo '<li><a href="' . $this->url('home'). '">home</a></li>';
+					}
+
+					?>
+					
 				</ul>
 			</div>
 			<div id="searchNav">
