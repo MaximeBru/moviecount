@@ -6,10 +6,14 @@
 	<h2>Top 5</h2>
 	<?php foreach ($top5 as $film): ?>
 		<article>
-			<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
-			<h3><?= mb_strimwidth($film['titre'], 0, 24, "...") ?></h3>
-			<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-			<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+			<a href="#">
+				<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
+				<h3><?= mb_strimwidth($film['titre'], 0, 24, "...") ?></h3>
+			</a>
+			<div id="btn">
+				<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+				<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+			</div>
 		</article>
 	<?php endforeach ?>
 </section>
@@ -18,7 +22,9 @@
 	<!-- section avec video -->
 	<section id="lastRealease">
 		<h2>Dernieres sorties</h2>
-		<h3>Batman Vs Superman - Dawn Of Justice <span>2016</span></h3>
+		<a href="">
+			<h3>Batman Vs Superman - Dawn Of Justice <span>2016</span></h3>
+		</a>
 
 		<div class="video-container">
 			<iframe src="//www.youtube.com/embed/1iK44Bjajh4?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -37,9 +43,10 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-
-				<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-				<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+				<div id="btn">
+					<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+				</div>
 			</article>
 		</section>
 
@@ -73,10 +80,14 @@
 		<h2>top5 ajout a la liste vu</h2>
 		<?php foreach ($top5Vu as $film): ?>
 			<article>
-				<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
-				<h3><?= mb_strimwidth($film['titre'], 0, 24, "...") ?></h3>
-				<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-				<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+				<a href="#">
+					<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
+					<h3><?= mb_strimwidth($film['titre'], 0, 24, "...") ?></h3>
+				</a>
+				<div id="btn">
+					<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+					<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+				</div>
 			</article>
 		<?php endforeach ?>
 	</section>
@@ -107,10 +118,14 @@
 			<?php //var_dump($trois_films) ?>
 			<?php foreach ($trois_films as $film): ?>
 				<article>
-					<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
-					<h3><?= mb_strimwidth($film['titre'], 0, 24, "...") ?></h3>
-					<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-					<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+					<a href="#">
+						<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
+						<h3><?= mb_strimwidth($film['titre'], 0, 24, "...") ?></h3>
+					</a>
+					<div id="btn">
+						<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
+					</div>
 				</article>
 			<?php endforeach ?>
 		</section>

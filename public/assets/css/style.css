@@ -89,7 +89,7 @@ main img{
 	margin-bottom: 1rem;
 }
 
-main a {
+main #btn a{
 	background-color: #00B4C5;
 	font-family: 'Roboto', sans-serif;
 	padding: 0.8rem 3.7rem;	
@@ -366,6 +366,48 @@ footer {
 #imgDeProfil{
 	width: 50%;
 }
-/*@media screen and (min-width: 720px){
 
-}*/
+
+/* ========================== Detail ========================== */
+/* Section  */
+#DetailsFilm img {
+	width: 29rem;
+	margin-right: 3.5rem;
+}
+#DetailsFilm article {
+	display: inline-block;
+}
+#DetailsFilm article:nth-of-type(2) {
+	width: 71%;
+	vertical-align: top;
+}
+#DetailsFilm h3 {
+	font-size: 2.8rem;
+	padding-bottom: .5rem;
+	/* ==== SHADOW ==== */
+	-moz-box-shadow: 0px 1px 0px 0px #00b4c5;
+	-webkit-box-shadow: 0px 1px 0px 0px #00b4c5;
+	-o-box-shadow: 0px 1px 0px 0px #00b4c5;
+	box-shadow: 0px 1px 0px 0px #00b4c5;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#00b4c5, Direction=180, Strength=0);
+}
+#DetailsFilm h4 {
+	font-size: 1.8rem;
+	margin-bottom: .5rem;
+}
+#DetailsFilm p {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+#cast {
+	margin-bottom: 2rem;
+}
+#cast p{
+	display: inline-block;
+	margin: 0 2.5rem 1rem 0;
+}
+#DetailsFilm #btn a {
+	padding: 1.5rem 8rem;	
+	float: right;
+	margin: 0 0 0 2rem;
+}

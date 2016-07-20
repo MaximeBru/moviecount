@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Manager\FilmManager;
+use \W\Manager\UserManager;
 
 class DefaultController extends Controller
 {
@@ -34,7 +35,9 @@ class DefaultController extends Controller
 
 	public function recherche()
 	{
-		$this->show('default/recherche');
+		$manager = new FilmManager();
+		$search = $manager->search($_POST['recherche']);
+		$this->show('default/recherche', ['search'=>$search]);
 	}
 
 	public function detail($id)
@@ -44,7 +47,9 @@ class DefaultController extends Controller
 
 	public function profil($id)
 	{
-		$this->show('default/profil');
+		$manager = new UserManager();
+		$user = $manager->find($id);
+		$this->show('default/profil', ['user'=>$user]);
 	}
 
 	public function decouvrir()
