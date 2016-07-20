@@ -47,11 +47,10 @@ class FilmManager extends \W\Manager\Manager {
 
 	public function lastActivity($limit = 6)	//Dernières activités de la communauté
 	{
-		$sql = "SELECT username, id_user, date_ajout, stat_view FROM users_stats as u_s LEFT JOIN wusers as u ON u_s.id_user = u.id order by date_ajout desc limit $limit";
+		$sql = "SELECT u.username, u_s.id_user, u_s.date_ajout, u_s.stat_view, f.titre FROM users_stats u_s, wusers u, films f WHERE u_s.id_user = u.id and u_s.id_film = f.id order by u_s.date_ajout desc limit $limit";
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		return $sth->fetchAll();
 	}
 	
-
 }

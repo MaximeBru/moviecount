@@ -21,10 +21,11 @@ class DefaultController extends Controller
 		$manager = new FilmManager();
 		$top5 = $manager->getTopFilm();
 		$top5Vu = $manager->topListeVu();
-		//var_dump($top5Vu);die();
-		$lastActivity =$manager->lastActivity();
+		$lastActivity = $manager->lastActivity();
+		$topUsers = $manager->topUsers();
+		$trois_films = $manager->getRandomFilms(3);
 		
-		$this->show('default/home', ['top5'=>$top5, 'top5Vu'=>$top5Vu, 'lastActivity'=>$lastActivity]);
+		$this->show('default/home', ['top5'=>$top5, 'top5Vu'=>$top5Vu, 'lastActivity'=>$lastActivity, 'topUsers'=>$topUsers, 'trois_films'=>$trois_films]);
 
 		//$cinq_films = $manager->getRandomFilms(5);
 		//$this->show('default/home',['cinq_films'=>$cinq_films]);
