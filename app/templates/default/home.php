@@ -1,11 +1,17 @@
 <?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
 <?php $this->start('main_content') ?>
-<?php if(isset($_SESSION['message'])) { ?>
-	<div><?= $_SESSION['message'] ?></div>
+	<?php if(isset($_SESSION['message'])) { ?>
+		<div><?= $_SESSION['message'] ?></div>
 	<?php } 
 		unset($_SESSION['message']);
 	?>
+
+<div id="home">
+	<h1><span>MovieCount</span>, Votre profil cinema en ligne.</h1>
+	<p>Créer votre compte <span>Movicount</span> en ligne pour découvrir votre profil cinema a travers les films que vous avez vu. </p>
+</div>
+
 <section id="newFilm">
 	<h2>Top 5</h2>
 	<?php foreach ($top5 as $film): ?>
@@ -19,7 +25,13 @@
 					<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu"><i class="fa fa-eye" aria-hidden="true"></i></a>
 					<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'veux voir ! "><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 				</div>
+			<?php } else { ?>
+				<div id="btn">
+					<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+					<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+				</div>
 			<?php } ?>
+
 		</article>
 	<?php endforeach ?>
 </section>
@@ -53,6 +65,11 @@
 					<div id="btn">
 						<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
 						<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+					</div>
+				<?php } else { ?>
+					<div id="btn">
+						<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+						<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 					</div>
 				<?php } ?>
 			</article>
@@ -99,6 +116,11 @@
 					<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu""><i class="fa fa-eye" aria-hidden="true"></i></a>
 					<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 				</div>
+			<?php } else { ?>
+				<div id="btn">
+					<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+					<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+				</div>
 			<?php } ?>
 		</article>
 	<?php endforeach ?>
@@ -136,8 +158,13 @@
 				</a>
 				<?php if(isset($_SESSION['user'])) { ?>
 					<div id="btn">
-						<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-						<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+						<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'ai déjà vu""><i class="fa fa-eye" aria-hidden="true"></i></a>
+						<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+					</div>
+				<?php } else { ?>
+					<div id="btn">
+						<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+						<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 					</div>
 				<?php } ?>
 			</article>

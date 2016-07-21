@@ -36,7 +36,7 @@ class FilmManager extends \W\Manager\Manager {
 		return $sth->fetchAll();
 	}
 
-	public function topUsers($limit = 6)	//Top 6 des personnes qui ont vu le plus de films
+	public function topUsers($limit = 8)	//Top 8 des personnes qui ont vu le plus de films
 	{
 		$sql = "SELECT username, id_user, COUNT(*)as topUser FROM users_stats as u_s LEFT JOIN wusers as u ON u_s.id_user = u.id WHERE u_s.stat_view = 1 group by id_user order by topUser desc limit $limit";
 		$sth = $this->dbh->prepare($sql);

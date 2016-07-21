@@ -68,6 +68,65 @@ nav label{
 
 }
 
+/*================================
+RECHERCHE
+================================*/
+#resultat {
+	min-height: 100rem;
+}
+#resultat h2 {
+	margin-bottom: 4rem;
+}
+#resultat p {
+	font-style: normal;
+	text-align: center;
+}
+
+nav form {
+	margin-top: .7rem;
+}
+nav input {
+	background: white;
+	border: none;
+	margin-right: .5rem;
+}
+/* ================================
+MESSAGE HOME
+================================ */
+#home {
+	max-width: 115rem;
+	margin: auto;
+	text-align: center;
+	color: white;
+}
+#home h1 {
+	width: 50rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 2.3rem;	
+	margin: auto;
+	padding-bottom: .5rem;
+	margin-bottom: 1rem;
+	/* ==== SHADOW ==== */
+	-moz-box-shadow: 0px 1px 0px 0px #00b4c5;
+	-webkit-box-shadow: 0px 1px 0px 0px #00b4c5;
+	-o-box-shadow: 0px 1px 0px 0px #00b4c5;
+	box-shadow: 0px 1px 0px 0px #00b4c5;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#00b4c5, Direction=180, Strength=0);
+}
+#home h1 span {
+	font-family: 'Montserrat', sans-serif;
+}
+#home p {
+	font-style: normal;
+	margin-bottom: 4rem;
+	font-size: 1.4rem;
+}
+#home p span {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
 #searchNav{
 	right: 4rem;
     position: absolute;
@@ -359,12 +418,140 @@ footer {
 
 }
 
-/*______________________________PAGE DE PROFIL!!!!!!!________________________*/
-
-
-
+/* ======================= PAGE PROFIL ======================= */
+#profilUser article{
+	display: inline-block;
+	width: 24%;
+	vertical-align:middle;
+    text-align: center;
+}
+#profilUser article:not(:last-of-type){
+    margin-right: 4.6rem;
+}
+#profilUser article:first-of-type {
+	width: 15%;
+}
 #imgDeProfil{
-	width: 50%;
+	height: 12rem;
+	margin: auto;
+	margin-bottom: 1rem;
+}
+/* ====== USER ===== */
+#User p{
+	margin-bottom: 2rem;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	padding-bottom: 1rem;
+	margin-bottom: 3rem;
+	/* ==== SHADOW ==== */
+	-moz-box-shadow: 0px 1px 0px 0px #00b4c5;
+	-webkit-box-shadow: 0px 1px 0px 0px #00b4c5;
+	-o-box-shadow: 0px 1px 0px 0px #00b4c5;
+	box-shadow: 0px 1px 0px 0px #00b4c5;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#00b4c5, Direction=180, Strength=0);
+}
+#User a{
+	padding: 1rem 6rem;	
+	margin: 0;
+	background-color: #00B4C5;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.5rem;
+}
+/* ====== LISTE ===== */
+.titleProf{
+	font-style: normal;
+	font-size: 1.7rem;
+	font-family: 'Montserrat', sans-serif;
+	color: #b1b1b1;
+	margin-bottom: 1rem;
+}
+.number{
+	color: white;
+	font-size: 10rem;
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	font-weight: 900;
+	/* ==== SHADOW ==== */
+	-moz-box-shadow: 0px 1px 0px 0px #1a1b1f;
+	-webkit-box-shadow: 0px 1px 0px 0px #1a1b1f;
+	-o-box-shadow: 0px 1px 0px 0px #1a1b1f;
+	box-shadow: 0px 1px 0px 0px #1a1b1f;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#1a1b1f, Direction=180, Strength=0);
+}
+.separate{
+	display: inline-block;
+	width: 48%;
+	margin-bottom: 4rem;
+}
+.separate:first-of-type{
+	/* ==== SHADOW ==== */
+	-moz-box-shadow: 1px 0px 0px 0px #1a1b1f;
+	-webkit-box-shadow: 1px 0px 0px 0px #1a1b1f;
+	-o-box-shadow: 1px 0px 0px 0px #1a1b1f;
+	box-shadow: 1px 0px 0px 0px #1a1b1f;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#1a1b1f, Direction=90, Strength=0);
+}
+#profilUser article:last-of-type {
+	vertical-align: bottom;
+}
+#follow{
+	/* ==== SHADOW ==== */
+	-moz-box-shadow: 0px 1px 0px 0px #1a1b1f;
+	-webkit-box-shadow: 0px 1px 0px 0px #1a1b1f;
+	-o-box-shadow: 0px 1px 0px 0px #1a1b1f;
+	box-shadow: 0px 1px 0px 0px #1a1b1f;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#1a1b1f, Direction=180, Strength=0);
+}
+.littleNumber{
+	color: white;
+	font-size: 5rem;
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	font-weight: 900;
+}
+#profilUser li {
+	margin: 1.5rem 0 0 0;
+}
+/* ====== TOP / AWARDS ====== */
+#TopAwa {
+	position: relative;
+	max-width: 121rem;
+	margin: auto;
+}
+#TopAwa section{
+	display: inline-block;
+	vertical-align: top;
+}
+#TopReaActGen {
+	width: 60%;
+	margin-right: 3rem;
+	position: relative;
+}
+#TopReaActGen h2{
+	margin-bottom: 3rem;
+}
+#TopReaActGen article {
+	display: inline-block;
+	width: 33%;
+	text-align:center;
+	vertical-align: top;
+}
+#TopReaActGen img{
+	width: 15rem;
+	margin: auto;
+	margin-bottom: 1rem;
+	/*border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;*/
+}
+#Awa {
+	width: 27.3%;
+	height: 33.5rem;
+}
+#Awa p {
+	text-align: center;
+	font-style: normal;
 }
 
 
