@@ -27,10 +27,6 @@ class DefaultController extends Controller
 		$trois_films = $manager->getRandomFilms(3);
 		
 		$this->show('default/home', ['top5'=>$top5, 'top5Vu'=>$top5Vu, 'lastActivity'=>$lastActivity, 'topUsers'=>$topUsers, 'trois_films'=>$trois_films]);
-
-		//$cinq_films = $manager->getRandomFilms(5);
-		//$this->show('default/home',['cinq_films'=>$cinq_films]);
-		
 	}
 
 	public function recherche()
@@ -42,7 +38,11 @@ class DefaultController extends Controller
 
 	public function detail($id)
 	{
-		$this->show('default/detail');
+		$manager = new FilmManager();
+		$film = $manager->find($id);
+		$films_assoc = $manager->getRandomFilms(5);
+		//$this->show('default/home',['films_assoc'=>$films_assoc]);
+		$this->show('default/detail', ['film' => $film, 'films_assoc'=>$films_assoc]);
 	}	
 
 	public function profil($id)
@@ -55,6 +55,22 @@ class DefaultController extends Controller
 	public function decouvrir()
 	{
 		$this->show('default/decouvrir');
+	}
+
+	public function dejavu($id_user, $id_film)
+	{
+		$manager = new FilmManager();
+		$manager->voir($id_user, $id_film, 1);
+		$_SESSION['message'] = "merci";
+		$this->redirectToRoute('home');
+	}
+
+	public function jveuxvoir($id_user, $id_film)
+	{
+		$manager = new FilmManager();
+		$manager->voir($id_user, $id_film, 2);
+		$_SESSION['message'] = "merci";
+		$this->redirectToRoute('home');
 	}
 
 }

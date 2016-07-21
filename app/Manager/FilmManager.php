@@ -47,7 +47,7 @@ class FilmManager extends \W\Manager\Manager {
 
 	public function lastActivity($limit = 6)	//Dernières activités de la communauté
 	{
-		$sql = "SELECT u.username, u_s.id_user, u_s.date_ajout, u_s.stat_view, f.titre FROM users_stats u_s, wusers u, films f WHERE u_s.id_user = u.id and u_s.id_film = f.id order by u_s.date_ajout desc limit $limit";
+		$sql = "SELECT u.username, u_s.id_user, u_s.date_ajout, u_s.stat_view, f.titre, f.id FROM users_stats u_s, wusers u, films f WHERE u_s.id_user = u.id and u_s.id_film = f.id order by u_s.date_ajout desc limit $limit";
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		return $sth->fetchAll();
@@ -59,6 +59,20 @@ class FilmManager extends \W\Manager\Manager {
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		return $sth->fetchAll();
+	}
+
+	public function voir($id_user, $id_film, $stat)
+	{
+		// vérifier si l'enregistrement pour ce film et cet utilisateur n'est pas déjà dans la table
+		// TODO
+		$sql = "INSERT INTO users_stats (`id_user`, `id_film`, `stat_view`, `date_ajout` ) VALUES (:id_user, :id_film, :stat, NOW())";
+		
+		$sth = $this->dbh->prepare($sql);
+	    $sth->bindValue(":id_user", $id_user);
+	    $sth->bindValue(":id_film", $id_film);
+	    $sth->bindValue(":stat", $stat);
+
+		return $sth->execute();
 	}
 	
 }

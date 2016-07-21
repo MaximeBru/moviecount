@@ -7,6 +7,8 @@
 		['GET', '/detail/[i:id]', 'Default#detail', 'detail'],
 		['GET|POST', '/profil/[i:id]', 'Default#profil', 'profil'],
 		['GET', '/decouvrir', 'Default#decouvrir', 'decouvrir'],
+		['GET', '/dejavu/[i:id_user]/[i:id_film]', 'Default#dejavu', 'dejavu'],
+		['GET', '/jveuxvoir/[i:id_user]/[i:id_film]', 'Default#jveuxvoir', 'jveuxvoir'],
 
 		# Login, Inscription etc
 		['GET|POST', '/inscription', 'Login#inscription', 'inscription'],

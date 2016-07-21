@@ -28,7 +28,7 @@
 
 						echo '<li><a href="'. $this->url('profil',['id'=>$_SESSION['user']['id']]).'">profil</a></li>';
 						echo '<li><a href="' . $this->url('deconnexion'). '">deconnexion</a></li>';
-						echo '<li><a href="' . $this->url('home'). '">home</a></li>';
+						/*echo '<li><a href="' . $this->url('home'). '">home</a></li>';*/
 					}
 
 					?>
@@ -36,7 +36,7 @@
 				</ul>
 			</div>
 			<div id="searchNav">
-				<form method="POST">
+				<form method="POST" action="<?= $this->url('recherche') ?>">
 					<input id="search" type="search" name="recherche" required>
 					<label for="search">
 					<i class="fa fa-search" aria-hidden="true"></i>
