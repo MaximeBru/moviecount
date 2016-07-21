@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 19 Juillet 2016 à 14:39
+-- Généré le :  Jeu 21 Juillet 2016 à 11:50
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 --
 
 CREATE TABLE IF NOT EXISTS `films` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `titre` varchar(100) NOT NULL,
   `img` varchar(250) NOT NULL,
   `background_img` varchar(250) NOT NULL,
@@ -2005,28 +2005,45 @@ CREATE TABLE IF NOT EXISTS `realisateurs` (
 --
 
 CREATE TABLE IF NOT EXISTS `users_stats` (
-  `id` int(3) NOT NULL AUTO_INCREMENT,
-  `id_user` int(3) NOT NULL,
-  `vote_count` int(3) NOT NULL,
-  `date_ajout` date NOT NULL,
-  `stat_view` enum('1','2') NOT NULL,
-  `avatar` varchar(150) NOT NULL,
-  `id_film` int(3) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `vote_count` int(11) DEFAULT NULL,
+  `date_ajout` datetime NOT NULL,
+  `stat_view` int(11) NOT NULL,
+  `id_film` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Table statistique utilisateurs movie count' AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Table statistique utilisateurs movie count' AUTO_INCREMENT=29 ;
 
 --
 -- Contenu de la table `users_stats`
 --
 
-INSERT INTO `users_stats` (`id`, `id_user`, `vote_count`, `date_ajout`, `stat_view`, `avatar`, `id_film`) VALUES
-(1, 1, 3, '2016-07-13', '1', '', 5),
-(2, 2, 5, '2016-07-13', '1', '', 6),
-(3, 3, 2, '2016-07-13', '1', '', 7),
-(4, 1, 3, '2016-07-13', '1', '', 8),
-(5, 2, 4, '2016-07-13', '1', '', 6),
-(6, 3, 5, '2016-07-13', '1', '', 7),
-(7, 4, 3, '2016-07-19', '1', '', 10);
+INSERT INTO `users_stats` (`id`, `id_user`, `vote_count`, `date_ajout`, `stat_view`, `id_film`) VALUES
+(1, 1, 3, '2016-07-13 00:00:00', 1, 5),
+(2, 2, 5, '2016-07-13 00:00:00', 1, 6),
+(3, 3, 2, '2016-07-13 00:00:00', 1, 7),
+(4, 1, 3, '2016-07-13 00:00:00', 1, 8),
+(5, 2, 4, '2016-07-13 00:00:00', 1, 6),
+(6, 3, 5, '2016-07-13 00:00:00', 1, 7),
+(7, 4, 3, '2016-07-19 00:00:00', 1, 10),
+(8, 5, 0, '2016-07-20 00:00:00', 2, 15),
+(9, 7, 0, '2016-07-20 00:00:00', 2, 18),
+(10, 8, 1, '2016-07-20 00:00:00', 1, 17),
+(14, 4, NULL, '2016-07-21 10:44:39', 1, 7),
+(15, 4, NULL, '2016-07-21 10:44:42', 2, 7),
+(16, 4, NULL, '2016-07-21 10:46:48', 2, 6),
+(17, 4, NULL, '2016-07-21 10:49:36', 1, 6),
+(18, 4, NULL, '2016-07-21 10:49:49', 1, 6),
+(19, 4, NULL, '2016-07-21 10:50:28', 1, 6),
+(20, 4, NULL, '2016-07-21 10:50:32', 1, 7),
+(21, 4, NULL, '2016-07-21 10:51:23', 1, 6),
+(22, 4, NULL, '2016-07-21 10:51:26', 1, 7),
+(23, 4, NULL, '2016-07-21 10:51:30', 1, 6),
+(24, 4, NULL, '2016-07-21 10:53:59', 1, 6),
+(25, 4, NULL, '2016-07-21 11:00:24', 1, 5),
+(26, 7, NULL, '2016-07-21 11:22:44', 1, 17),
+(27, 8, NULL, '2016-07-21 11:24:51', 2, 8),
+(28, 3, NULL, '2016-07-21 11:42:05', 2, 10);
 
 -- --------------------------------------------------------
 
@@ -2044,19 +2061,22 @@ CREATE TABLE IF NOT EXISTS `wusers` (
   `age` varchar(10) NOT NULL,
   `role` enum('user','admin') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Table utilisateurs de movie_count' AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Table utilisateurs de movie_count' AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `wusers`
 --
 
 INSERT INTO `wusers` (`id`, `username`, `password`, `nom`, `prenom`, `email`, `age`, `role`) VALUES
-(1, 'harry', '', 'cover', 'harry', 'harry@gmail.com', '35', 'user'),
-(2, 'cesar', '', 'bistafer', 'cesar', 'cesar@gmail.com', '40', 'user'),
-(3, 'john', '', 'Doe', 'John', 'john@gmail.com', '45', 'user'),
+(1, 'harry', '$2y$10$1jnCQA/ToVsGRWnFMgIIlupSEmcO/Epznri72lLpBtY6p8QmpDj0C', 'cover', 'harry', 'harry@gmail.com', '35', 'user'),
+(2, 'cesar', '$2y$10$1jnCQA/ToVsGRWnFMgIIlupSEmcO/Epznri72lLpBtY6p8QmpDj0C', 'bistafer', 'cesar', 'cesar@gmail.com', '40', 'user'),
+(3, 'john', '$2y$10$1jnCQA/ToVsGRWnFMgIIlupSEmcO/Epznri72lLpBtY6p8QmpDj0C', 'Lennon', 'John', 'john@gmail.com', '45', 'user'),
 (4, 'alain', '$2y$10$a42P8lOoxJzmBW35PR/6cO4sS4GYGXqW5cPSa7SVsV5OCDppyhVc.', 'Deloin', 'Alain', 'alain@gmail.com', '', 'user'),
 (5, 'aline', '$2y$10$txinEbJcXxOc9RJlmh0WfuE8cKAmrScupk60GbJ.V821lhMMUt1Ya', 'aline', 'aline', 'aline@gmail.com', '', 'user'),
-(6, '', '$2y$10$1jnCQA/ToVsGRWnFMgIIlupSEmcO/Epznri72lLpBtY6p8QmpDj0C', '', '', '', '', 'user');
+(6, '', '$2y$10$1jnCQA/ToVsGRWnFMgIIlupSEmcO/Epznri72lLpBtY6p8QmpDj0C', '', '', '', '', 'user'),
+(7, 'paul', '$2y$10$L12e2VrovvSfN9XlGnMPguu3gM/O3w4UyBYJ9TKpZadAXJZRY3pYe', 'McCartnay', 'Paul', 'paul@gmail.com', '', 'user'),
+(8, 'ringo', '$2y$10$CN/JushRb7yGzjNe0Im1dOypRz04RFj9ELd6/idE/vOGk4jvftMuK', 'Starr', 'Ringo', 'ringo@gmail.com', '', 'user'),
+(9, 'george', '$2y$10$D6CUFqtiu2q4iQ0l2WTSB.U3ZnVcMe.uHA4YhLIJJAokNJZ.u/qka', 'Harrison', 'George', 'george@gmail.com', '', 'user');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
