@@ -18,6 +18,9 @@
 
 		# Admin du site
 		['GET', '/admin', 'Admin#index', 'admin'],
+		['GET|POST', '/admin/creer', 'Admin#creer', 'creer'],
+		['GET|POST', '/admin/editer/[i:id]', 'Admin#editer', 'editer'],
+		['GET', '/admin/supprimer/[i:id]', 'Admin#supprimer', 'supprimer'],
 
 		# API
 		['GET', '/api/random_films/[i:n]', 'Api#getRandomFilms', 'api_random'],

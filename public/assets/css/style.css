@@ -21,11 +21,6 @@ li {
 
 }
 
-section{
-	margin-bottom: 2rem;
-	background-color: #292b30;
-}
-
 nav{
 	background-color: #121317;
     padding: 2rem;
@@ -69,6 +64,54 @@ nav label{
 }
 
 /*================================
+INSCRIPTION
+================================*/
+#inscription {
+	min-height: 100rem;
+}
+#inscription h2 {
+	margin-bottom: 5rem;
+}
+#inscription form {
+	position: relative;
+	width: 55rem;
+	margin: auto;
+}
+#inscription form input {
+	width: 45rem;
+	display: inline-block;
+	border: none;
+	margin-bottom: 2rem;
+	padding: 1.5rem 5rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	background-color: #1a1b1f;
+	color: white;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #b1b1b1;
+}
+ 
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #b1b1b1;
+}
+ 
+input.placeholder, textarea.placeholder {
+    color: #b1b1b1;
+}
+#inscription form button {
+	width: 55rem;
+	padding: 1.5rem 5rem;
+	background-color: #00B4C5;
+	font-size: 1.5rem;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: white;
+	border: none;
+}
+
+/*================================
 RECHERCHE
 ================================*/
 #resultat {
@@ -90,6 +133,19 @@ nav input {
 	border: none;
 	margin-right: .5rem;
 }
+
+#resultat article{
+    display: inline-block;
+    width: 17.7%;
+    text-align: center;
+    margin: 0 1.2rem 6rem 1.2rem;
+}
+
+#resultat article img{
+	width: 100%;
+	margin-bottom: 1rem;
+} 
+
 /* ================================
 MESSAGE HOME
 ================================ */
@@ -206,6 +262,8 @@ section{
 	padding: 3rem;
 	margin: auto;
 	margin-bottom: 3rem;
+	margin-bottom: 2rem;
+	background-color: #292b30;
 }
 
 article a:first-of-type{
@@ -224,13 +282,11 @@ article a:first-of-type{
 	margin-right: 3rem;
 }
 
-
-
-
 #newFilm article img{
 	width: 100%;
 	margin-bottom: 1rem;
 }
+
 /*new film 2*/
 #newFilm2 article{
     display: inline-block;
