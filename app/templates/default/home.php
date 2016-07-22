@@ -22,8 +22,8 @@
 			</a>
 			<?php if(isset($_SESSION['user'])) { ?>
 				<div id="btn">
-					<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu"><i class="fa fa-eye" aria-hidden="true"></i></a>
-					<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'veux voir ! "><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+					<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
+					<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 				</div>
 			<?php } else { ?>
 				<div id="btn">
@@ -63,8 +63,8 @@
 				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
 				<?php if(isset($_SESSION['user'])) { ?>
 					<div id="btn">
-						<a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a>
-						<a href="#"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+						<a href="#" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
+						<a href="#" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 					</div>
 				<?php } else { ?>
 					<div id="btn">
@@ -114,7 +114,7 @@
 			<?php if(isset($_SESSION['user'])) { ?>
 				<div id="btn">
 					<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu""><i class="fa fa-eye" aria-hidden="true"></i></a>
-					<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+					<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 				</div>
 			<?php } else { ?>
 				<div id="btn">
@@ -158,8 +158,8 @@
 				</a>
 				<?php if(isset($_SESSION['user'])) { ?>
 					<div id="btn">
-						<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'ai déjà vu""><i class="fa fa-eye" aria-hidden="true"></i></a>
-						<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+						<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'ai déjà vu !""><i class="fa fa-eye" aria-hidden="true"></i></a>
+						<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 					</div>
 				<?php } else { ?>
 					<div id="btn">

@@ -55,7 +55,7 @@ class FilmManager extends \W\Manager\Manager {
 
 	public function search($search)
 	{
-		$sql = "SELECT id_film_api, titre, img FROM " . $this->table . " WHERE titre LIKE '%$search%'";
+		$sql = "SELECT id_film_api, id, titre, img FROM " . $this->table . " WHERE titre LIKE '%$search%'";
 		$sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		return $sth->fetchAll();

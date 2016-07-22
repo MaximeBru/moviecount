@@ -40,9 +40,21 @@ class DefaultController extends Controller
 	{
 		$manager = new FilmManager();
 		$film = $manager->find($id);
+		
+		$call = "http://api.themoviedb.org/3/movie/" . $film['id_film_api'] . "/casts?api_key=a2992ed9d3f8b932cc90a57972f676dc";
+		$json = file_get_contents($call);
+		$tab = (array)json_decode($json);
+		$cast = (array)$tab['cast'];
+		$crew = (array)$tab['crew'];
+
+		$call2 = "http://api.themoviedb.org/3/movie/" . $film['id_film_api'] . "?api_key=a2992ed9d3f8b932cc90a57972f676dc&language=fr";
+		$json2 = file_get_contents($call2);
+		$tab2 = (array)json_decode($json2);
+		$genre = (array)$tab2['genres'];
+
 		$films_assoc = $manager->getRandomFilms(5);
-		//$this->show('default/home',['films_assoc'=>$films_assoc]);
-		$this->show('default/detail', ['film' => $film, 'films_assoc'=>$films_assoc]);
+		
+		$this->show('default/detail', ['film' => $film, 'release_date' => $tab2['release_date'], 'genre' => $genre, 'crew' => $crew, 'cast' => $cast, 'films_assoc'=>$films_assoc]);
 	}	
 
 	public function profil($id)
