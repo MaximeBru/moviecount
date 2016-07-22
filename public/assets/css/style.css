@@ -112,6 +112,54 @@ input.placeholder, textarea.placeholder {
 }
 
 /*================================
+CONNEXION
+================================*/
+#connexion {
+	min-height: 100rem;
+}
+#connexion h2 {
+	margin-bottom: 5rem;
+}
+#connexion form {
+	position: relative;
+	width: 55rem;
+	margin: auto;
+}
+#connexion form input {
+	width: 45rem;
+	display: inline-block;
+	border: none;
+	margin-bottom: 2rem;
+	padding: 1.5rem 5rem;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	background-color: #1a1b1f;
+	color: white;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #b1b1b1;
+}
+ 
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #b1b1b1;
+}
+ 
+input.placeholder, textarea.placeholder {
+    color: #b1b1b1;
+}
+#connexion form button {
+	width: 55rem;
+	padding: 1.5rem 5rem;
+	background-color: #00B4C5;
+	font-size: 1.5rem;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: white;
+	border: none;
+}
+
+/*================================
 RECHERCHE
 ================================*/
 #resultat {
@@ -414,8 +462,9 @@ main li p span{
 }
 
 #Disco{
-	width: 60%;
+	width: 61.5%;
 }
+
 #Disco article{
     display: inline-block;
     width: 27.5%;
@@ -453,6 +502,32 @@ main li p span{
 #TopCom{
 	margin-right: 3.5rem;
 }
+
+/* ==================
+DECOUVRIR
+=================*/
+
+#SecDecouvrir article{
+    display: inline-block;
+    width: 17.7%;
+    text-align: center;
+    margin: 0 1.2rem 6rem 1.2rem;
+}
+
+#SecDecouvrir article img{
+	width: 100%;
+	margin-bottom: 1rem;
+} 
+
+#decouvrir{
+		color: #00b4c5;
+}
+
+/* ==================
+DECOUVRIR
+=================*/
+
+
 
 /*#Disco article {
 	margin-right: 5.5rem;
@@ -569,6 +644,7 @@ footer {
 #profilUser li {
 	margin: 1.5rem 0 0 0;
 }
+
 /* ====== TOP / AWARDS ====== */
 #TopAwa {
 	position: relative;
@@ -653,4 +729,21 @@ footer {
 	padding: 1.5rem 8rem;	
 	float: right;
 	margin: 0 0 0 2rem;
+}
+
+/*systeme de notation designe des etoiles*/
+.rating a {
+   float: right;
+   color: #fff;
+   text-decoration: none;
+   font-size: 2.3em;
+   transition: color .4s;
+   margin: 1rem 1rem 0 0 ;
+}
+.rating a:hover,
+.rating a:focus,
+.rating a:hover ~ a,
+.rating a:focus ~ a {
+   color: #00B4C5;
+   cursor: pointer;
 }

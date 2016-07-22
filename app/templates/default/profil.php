@@ -8,11 +8,7 @@
 				<article id="User">
 					<img id="imgDeProfil" src="<?= $this->assetUrl('img/imagedeprofil.jpg') ?>">
 					<!-- <p>Maxime Bru</p> -->
-					<!-- 	<p><?php echo $user['avatar']?></p> -->
-					<p>Nom : <?php echo $user['nom'] ?></p>
-					<p>Prenom : <?php echo $user['prenom']?></p>
-					<p>Pseudo: <?php echo $user['username']?></p>
-					<p>Email: <?php echo $user['email']?></p>
+					<p><?php echo $user['prenom']. ' ' . $user['nom'] ?></p>
 					<a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
 				</article>
 				<!-- ========= LISTE MOVIE 1 ========= -->

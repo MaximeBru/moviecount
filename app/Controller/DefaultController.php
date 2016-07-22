@@ -66,7 +66,9 @@ class DefaultController extends Controller
 
 	public function decouvrir()
 	{
-		$this->show('default/decouvrir');
+		$manager = new FilmManager();
+		$vingt_films = $manager->getRandomFilms(20);
+		$this->show('default/decouvrir', ['vingt_films'=>$vingt_films]);
 	}
 
 	public function dejavu($id_user, $id_film)

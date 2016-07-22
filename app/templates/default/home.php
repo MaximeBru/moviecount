@@ -88,7 +88,7 @@
 						$view = ' veut voir ';
 					}
 					?>
-					<li><p><?= $valeur['username'] ?><span><?= $view ?></span><a href="<?= $this->url('detail', ['id' => $valeur['id']]) ?>"><?= mb_strimwidth($valeur['titre'], 0, 23, "...") ?> </a><span>le  <?= strftime('%d/%m', strtotime($valeur['date_ajout'])) ?></span></p></li>
+					<li><p><?= $valeur['username'] ?><span><?= $view ?></span><a href="<?= $this->url('detail', ['id' => $valeur['id']]) ?>"><?= mb_strimwidth($valeur['titre'], 0, 20, "...") ?> </a><span>le  <?= strftime('%d/%m', strtotime($valeur['date_ajout'])) ?></span></p></li>
 				<!-- <li><p>Haji <span>a suivi .......</span> Yanis</p></li>
 				<li><p>Marcus <span>a vu .......</span> 1200 films</p></li>
 				<li><p>Maxime <span>a suivi ......</span>Yanis</p></li>
@@ -148,7 +148,7 @@
 
 	<!-- section decouvrir -->
 	<section id="Disco">
-		<h2>decouvrir</h2>
+		<h2><a href="<?= $this->url('decouvrir')?>" id="decouvrir">decouvrir</a></h2>
 		<?php //var_dump($trois_films) ?>
 		<?php foreach ($trois_films as $film): ?>
 			<article>
