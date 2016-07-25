@@ -252,7 +252,7 @@ main img{
 	margin-bottom: 1rem;
 }
 
-main #btn a{
+main .btn a{
 	background-color: #00B4C5;
 	font-family: 'Roboto', sans-serif;
 	padding: 0.8rem 3.7rem;	
@@ -725,7 +725,7 @@ footer {
 	display: inline-block;
 	margin: 0 2.5rem 1rem 0;
 }
-#DetailsFilm #btn a {
+#DetailsFilm .btn a {
 	padding: 1.5rem 8rem;	
 	float: right;
 	margin: 0 0 0 2rem;
