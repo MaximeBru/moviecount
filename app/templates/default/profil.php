@@ -8,35 +8,36 @@
 				<article id="User">
 					<img id="imgDeProfil" src="<?= $this->assetUrl('img/imagedeprofil.jpg') ?>">
 					<!-- <p>Maxime Bru</p> -->
-					<p><?php echo $user['prenom']. ' ' . $user['nom'] ?></p>
+					<p><?= $user['prenom']. ' ' . $user['nom'] ?></p>
 					<a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
 				</article>
 				<!-- ========= LISTE MOVIE 1 ========= -->
 				<article>
-				<div class="listMovie">
-					<p class="titleProf">Votre liste de film s'eleve a :</p>
-					<p class="number">3412</p>
-				</div>
-				<div class="movActu">
-					<ul>
-						<li><p><span>Vous avez ajouter : </span> Batman begins</p></li>
-						<li><p><span>Vous avez ajouter : </span> Batman begins</p></li>
-						<li><p><span>Vous avez ajouter : </span> Batman begins</p></li>
-					</ul>
-				</div>
+					<div class="listMovie">
+						<p class="titleProf">Votre liste de films s'élève à :</p>
+						<p class="number"><?= $dejaVu['total']?></p>
+					</div>
+					<div class="movActu">
+						<?php foreach ($listeDejaVu as $film): ?>
+							<ul>
+								<li><p><span>Vous avez ajouté :  </span><a href="<?= $this->url('detail', ['id' => $film['id']]) ?>"><?= mb_strimwidth($film['titre'], 0, 12, "...") ?></a></p></li>
+							</ul>
+						<?php endforeach ?>
+					</div>
 				</article>
 				<!-- ========= LISTE MOVIE 2 ========= -->
 				<article>
 					<div class="listMovie">
 						<p class="titleProf">Votre liste d'envie :</p>
-						<p class="number">3412</p>
+						<p class="number"><?= $veuxVoir['total']?></p>
 					</div>
 					<div class="movActu">
-						<ul>
-							<li><p><span>vous avez ajouter : </span> Batman begins</p></li>
-							<li><p><span>vous avez ajouter : </span> Batman begins</p></li>
-							<li><p><span>vous avez ajouter : </span> Batman begins</p></li>
-						</ul>
+						<?php foreach ($listeVeuxVoir as $film): ?>
+							<ul>
+								<li><p><span>Vous avez ajouté :  </span><a href="<?= $this->url('detail', ['id' => $film['id']]) ?>"><?= mb_strimwidth($film['titre'], 0, 12, "...") ?></a></p></li>
+							</ul>
+						<?php endforeach ?>
+							
 					</div>
 				</article>
 				<!-- ========= ABONNEMENT ========= -->
@@ -44,26 +45,70 @@
 					<div id="follow">
 						<div class="separate">
 							<p class="titleProf">Abonnées :</p>
-							<p class="littleNumber">500</p>
+							<p class="littleNumber">0</p>
 						</div>
 						<div class="separate">
 							<p class="titleProf">Suivi :</p>
-							<p class="littleNumber">500</p>
+							<p class="littleNumber">0</p>
 						</div>
 					</div>
 					<div class="movActu">
 						<ul>
-							<li><p>Hadji <span>suit desomais </span> Yanis</p></li>
-							<li><p>Hadji <span>suit desomais </span> Yanis</p></li>
-							<li><p>Hadji <span>suit desomais </span> Yanis</p></li>
+							<li><p><?= $user['username'] ?> <span>suit desomais </span></p></li>
+							<li><p><?= $user['username'] ?> <span>suit desomais </span></p></li>
+							<li><p><?= $user['username'] ?> <span>suit desomais </span></p></li>
 						</ul>
 					</div>
 				</article>
 			</section>
 			
-			<!-- ========= TOP FLOP PROFIL ========= -->
+			<!-- ========= TOP PROFIL ========= -->
 			<section id="newFilm2">
-				<h2>top5/flop5</h2>
+				<h2>top5</h2>
+				<?php foreach ($top5profil as $film): ?>
+					<article>
+						<a href="<?= $this->url('detail', ['id' => $film['id_film']]) ?>">
+							<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
+							<h3><?= mb_strimwidth($film['titre'], 0, 23, "...") ?></h3>
+						</a>
+						<?php if(isset($_SESSION['user'])) { ?>
+							<div id="btn">
+								<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
+								<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+							</div>
+						<?php } else { ?>
+							<div id="btn">
+								<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+								<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+							</div>
+						<?php } ?>
+
+					</article>
+				<?php endforeach ?>
+			</section>
+			<!-- ========= FLOP PROFIL ========= -->
+			<section id="newFilm2">
+				<h2>flop5</h2>
+				<?php foreach ($flop5profil as $film): ?>
+					<article>
+						<a href="<?= $this->url('detail', ['id' => $film['id_film']]) ?>">
+							<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
+							<h3><?= mb_strimwidth($film['titre'], 0, 23, "...") ?></h3>
+						</a>
+						<?php if(isset($_SESSION['user'])) { ?>
+							<div id="btn">
+								<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
+								<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+							</div>
+						<?php } else { ?>
+							<div id="btn">
+								<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+								<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+							</div>
+						<?php } ?>
+
+					</article>
+				<?php endforeach ?>
 			</section>
 			<!-- ========= TOP REAL / ACT / GENRE ========= -->
 			<div id="TopAwa">

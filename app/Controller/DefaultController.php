@@ -40,7 +40,7 @@ class DefaultController extends Controller
 	{
 		$manager = new FilmManager();
 		$film = $manager->find($id);
-		
+
 		$call = "http://api.themoviedb.org/3/movie/" . $film['id_film_api'] . "/casts?api_key=a2992ed9d3f8b932cc90a57972f676dc";
 		$json = file_get_contents($call);
 		$tab = (array)json_decode($json);
@@ -54,14 +54,23 @@ class DefaultController extends Controller
 
 		$films_assoc = $manager->getRandomFilms(5);
 		
-		$this->show('default/detail', ['film' => $film, 'release_date' => $tab2['release_date'], 'genre' => $genre, 'crew' => $crew, 'cast' => $cast, 'films_assoc'=>$films_assoc]);
+		$this->show('default/detail', ['film'=>$film, 'release_date'=>$tab2['release_date'], 'genre'=>$genre, 'crew'=>$crew, 'cast'=>$cast, 'films_assoc'=>$films_assoc]);
 	}	
 
 	public function profil($id)
 	{
 		$manager = new UserManager();
 		$user = $manager->find($id);
-		$this->show('default/profil', ['user'=>$user]);
+
+		$manager2 = new FilmManager();
+		$dejaVu = $manager2->totalVoir($id, 1);
+		$veuxVoir = $manager2->totalVoir($id, 2);
+		$listeDejaVu = $manager2->dernierAjout($id, 1, 3);
+		$listeVeuxVoir = $manager2->dernierAjout($id, 2, 3);
+		$top5profil = $manager2->top5profil($id, 5);
+		$flop5profil = $manager2->flop5profil($id, 5);
+		
+		$this->show('default/profil', ['user'=>$user, 'dejaVu'=>$dejaVu, 'veuxVoir'=>$veuxVoir, 'listeDejaVu'=>$listeDejaVu, 'listeVeuxVoir'=>$listeVeuxVoir, 'top5profil'=>$top5profil, 'flop5profil'=>$flop5profil]);
 	}
 
 	public function decouvrir()
@@ -75,7 +84,7 @@ class DefaultController extends Controller
 	{
 		$manager = new FilmManager();
 		$manager->voir($id_user, $id_film, 1);
-		$_SESSION['message'] = "merci";
+		$_SESSION['message'] = "Merci";
 		$this->redirectToRoute('home');
 	}
 
@@ -83,8 +92,48 @@ class DefaultController extends Controller
 	{
 		$manager = new FilmManager();
 		$manager->voir($id_user, $id_film, 2);
-		$_SESSION['message'] = "merci";
+		$_SESSION['message'] = "Merci";
 		$this->redirectToRoute('home');
 	}
+
+	public function vote($note, $id_user, $id_film)
+	{
+		$manager = new FilmManager();
+		$manager->vote($id_user, $id_film, $note);
+		$_SESSION['message'] = "Merci";
+		$this->redirectToRoute('home');
+	}
+
+	// public function vote2($id_user, $id_film)
+	// {
+	// 	$manager = new FilmManager();
+	// 	$manager->vote($id_user, $id_film, 2);
+	// 	$_SESSION['message'] = "Merci";
+	// 	$this->redirectToRoute('home');
+	// }
+
+	// public function vote3($id_user, $id_film)
+	// {
+	// 	$manager = new FilmManager();
+	// 	$manager->vote($id_user, $id_film, 3);
+	// 	$_SESSION['message'] = "Merci";
+	// 	$this->redirectToRoute('home');
+	// }
+
+	// public function vote4($id_user, $id_film)
+	// {
+	// 	$manager = new FilmManager();
+	// 	$manager->vote($id_user, $id_film, 4);
+	// 	$_SESSION['message'] = "Merci";
+	// 	$this->redirectToRoute('home');
+	// }
+
+	// public function vote5($id_user, $id_film)
+	// {
+	// 	$manager = new FilmManager();
+	// 	$manager->vote($id_user, $id_film, 5);
+	// 	$_SESSION['message'] = "Merci";
+	// 	$this->redirectToRoute('home');
+	// }
 
 }

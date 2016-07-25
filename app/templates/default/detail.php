@@ -56,13 +56,16 @@
 					<a><i class="fa fa-eye" aria-hidden="true"></i></a>
 				</div>
 			<?php } ?>
-			<div class="rating"><!--
-	 			--><a href="#5" title="Donner 5 étoiles" <i class="fa fa-star" aria-hidden="true"></i></a><!--
-				--><a href="#4" title="Donner 4 étoiles" <i class="fa fa-star" aria-hidden="true"></a><!--
-	  			--><a href="#3" title="Donner 3 étoiles" <i class="fa fa-star" aria-hidden="true"></a><!--
-	  			--><a href="#2" title="Donner 2 étoiles" <i class="fa fa-star" aria-hidden="true"></a><!--
-	  			--><a href="#1" title="Donner 1 étoile" <i class="fa fa-star" aria-hidden="true"></a>
-			</div>
+			<?php if(isset($_SESSION['user'])) { ?>
+				<div class="rating">
+		 			<a href="<?= $this->url('vote', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id'], 'note' => 5])?>" title="Donner 5 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
+					<a href="<?= $this->url('vote', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id'], 'note' => 4])?>" title="Donner 4 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
+		  			<a href="<?= $this->url('vote', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id'], 'note' => 3])?>" title="Donner 3 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
+		  			<a href="<?= $this->url('vote', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id'], 'note' => 2])?>" title="Donner 2 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
+		  			<a href="<?= $this->url('vote', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id'], 'note' => 1])?>" title="Donner 1 étoile" ><i class="fa fa-star" aria-hidden="true"></i></a>
+				</div>
+			<?php } ?>
+
 		</article>
 
 	</section>

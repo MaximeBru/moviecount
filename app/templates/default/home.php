@@ -7,13 +7,14 @@
 		unset($_SESSION['message']);
 	?>
 
+
 <div id="home">
-	<h1><span>MovieCount</span>, Votre profil cinema en ligne.</h1>
-	<p>Créer votre compte <span>Movicount</span> en ligne pour découvrir votre profil cinema a travers les films que vous avez vu. </p>
+	<h1><span>MovieCount</span>, Votre profil cinéma en ligne.</h1>
+	<p>Créer votre compte <span>Movicount</span> en ligne pour découvrir votre profil cinéma à travers les films que vous avez vus. </p>
 </div>
 
 <section id="newFilm">
-	<h2>Top 5</h2>
+	<h2>Top 5 meilleurs votes</h2>
 	<?php foreach ($top5 as $film): ?>
 		<article>
 			<a href="<?= $this->url('detail', ['id' => $film['id_film']]) ?>">
@@ -88,7 +89,7 @@
 						$view = ' veut voir ';
 					}
 					?>
-					<li><p><?= $valeur['username'] ?><span><?= $view ?></span><a href="<?= $this->url('detail', ['id' => $valeur['id']]) ?>"><?= mb_strimwidth($valeur['titre'], 0, 20, "...") ?> </a><span>le  <?= strftime('%d/%m', strtotime($valeur['date_ajout'])) ?></span></p></li>
+					<li><p><a href="<?= $this->url('profil', ['id' => $valeur['id_user']]) ?>"><?= $valeur['username'] ?></a><span><?= $view ?></span><a href="<?= $this->url('detail', ['id' => $valeur['id']]) ?>"><?= mb_strimwidth($valeur['titre'], 0, 17, "...") ?> </a><span>le  <?= strftime('%d/%m', strtotime($valeur['date_ajout'])) ?></span></p></li>
 				<!-- <li><p>Haji <span>a suivi .......</span> Yanis</p></li>
 				<li><p>Marcus <span>a vu .......</span> 1200 films</p></li>
 				<li><p>Maxime <span>a suivi ......</span>Yanis</p></li>
@@ -131,8 +132,9 @@
 	<section id="TopCom">
 		<h2>le top de la communauté</h2>
 		<ul>
-			<?php foreach ($topUsers as $indice => $valeur): ?>
-				<li><p><?= $topUsers[$indice]['username'] ?><span> a vu ......... </span><?= $topUsers[$indice]['topUser']?> films</p>
+			<?php //var_dump($topUsers) ?>
+			<?php foreach ($topUsers as $valeur): ?>
+				<li><p><a href="<?= $this->url('profil', ['id' => $valeur['id_user']]) ?>"><?= $valeur['username'] ?></a><span> a vu ......... </span><?= $valeur['topUser']?> films</p>
 				<!-- <li><p>haji <span>a vu .......</span>5300 films</p></li>
 				<li><p>marcus <span>a vu .......</span>1200 films</p></li>
 				<li><p>maxime <span>a vu .......</span>500 films</p></li>
