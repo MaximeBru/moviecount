@@ -1,15 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Accueil']) ?>
 
-<!-- <?php $this->start('main_content') ?>
-	<?php if(isset($_SESSION['message'])) { ?>
-		<div><?= $_SESSION['message'] ?></div>
-	<?php } 
-		unset($_SESSION['message']);
-	?> -->
+<?php $this->start('main_content') ?>
 
-<div id="message" style="display: none;background:red;color:white;">
-CONNEXION REQUISE
-</div>
 
 <div id="home">
 	<h1><span>MovieCount</span>, Votre profil cinéma en ligne.</h1>
@@ -29,79 +21,79 @@ CONNEXION REQUISE
 					<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
 					<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 				</div>
-			<?php } else { ?>
-				<div class="btn">
-					<a><i class="fa fa-eye" aria-hidden="true"></i></a>
-					<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-				</div>
-			<?php } ?>
-
-		</article>
-	<?php endforeach ?>
-</section>
-
-<div id="SorAct">
-	<!-- section avec video -->
-	<section id="lastRealease">
-		<h2>Dernieres sorties</h2>
-		<a href="">
-			<h3>Batman Vs Superman - Dawn Of Justice <span>2016</span></h3>
-		</a>
-
-		<div class="video-container">
-			<iframe src="//www.youtube.com/embed/1iK44Bjajh4?rel=0" frameborder="0" allowfullscreen></iframe>
-		</div>
-
-		<article id="SidVid">
-			<h4>Realisateur</h4>
-			<p>Zack Znyder</p>
-
-			<h4>Acteurs</h4>
-			<p>-Henry Cavil</p>
-			<p>-Gal Gadot</p>
-			<p>-Ben Afleck</p>
-
-			<h4>Synopsis</h4>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-				<?php if(isset($_SESSION['user'])) { ?>
-					<div class="btn">
-						<a href="#" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
-						<a href="#" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-					</div>
 				<?php } else { ?>
 					<div class="btn">
 						<a><i class="fa fa-eye" aria-hidden="true"></i></a>
 						<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 					</div>
-				<?php } ?>
-			</article>
+					<?php } ?>
+
+				</article>
+			<?php endforeach ?>
 		</section>
 
-		<!-- 2eme section de la div -->
-		<section id="activity">
-			<h2>Activités de la communauté</h2>
-			<?php //var_dump($lastActivity) ?>
-			<ul>
-				<?php foreach ($lastActivity as $valeur): ?>
-					<?php 
-					if ($valeur['stat_view'] == 1){
-						$view = ' a vu ';
-					} else {
-						$view = ' veut voir ';
-					}
-					?>
-					<li><p><a href="<?= $this->url('profil', ['id' => $valeur['id_user']]) ?>"><?= $valeur['username'] ?></a><span><?= $view ?></span><a href="<?= $this->url('detail', ['id' => $valeur['id']]) ?>"><?= mb_strimwidth($valeur['titre'], 0, 17, "...") ?> </a><span>le  <?= strftime('%d/%m', strtotime($valeur['date_ajout'])) ?></span></p></li>
+		<div id="SorAct">
+			<!-- section avec video -->
+			<section id="lastRealease">
+				<h2>Dernieres sorties</h2>
+				<a href="">
+					<h3>Batman Vs Superman - Dawn Of Justice <span>2016</span></h3>
+				</a>
+
+				<div class="video-container">
+					<iframe src="//www.youtube.com/embed/1iK44Bjajh4?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+
+				<article id="SidVid">
+					<h4>Realisateur</h4>
+					<p>Zack Znyder</p>
+
+					<h4>Acteurs</h4>
+					<p>-Henry Cavil</p>
+					<p>-Gal Gadot</p>
+					<p>-Ben Afleck</p>
+
+					<h4>Synopsis</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
+						<?php if(isset($_SESSION['user'])) { ?>
+							<div class="btn">
+								<a href="#" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
+								<a href="#" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+							</div>
+							<?php } else { ?>
+								<div class="btn">
+									<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+									<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+								</div>
+								<?php } ?>
+							</article>
+						</section>
+
+						<!-- 2eme section de la div -->
+						<section id="activity">
+							<h2>Activités de la communauté</h2>
+							<?php //var_dump($lastActivity) ?>
+							<ul>
+								<?php foreach ($lastActivity as $valeur): ?>
+									<?php 
+									if ($valeur['stat_view'] == 1){
+										$view = ' a vu ';
+									} else {
+										$view = ' veut voir ';
+									}
+									?>
+									<li><p><a href="<?= $this->url('profil', ['id' => $valeur['id_user']]) ?>"><?= $valeur['username'] ?></a><span><?= $view ?></span><a href="<?= $this->url('detail', ['id' => $valeur['id']]) ?>"><?= mb_strimwidth($valeur['titre'], 0, 17, "...") ?> </a><span>le  <?= strftime('%d/%m', strtotime($valeur['date_ajout'])) ?></span></p></li>
 				<!-- <li><p>Haji <span>a suivi .......</span> Yanis</p></li>
 				<li><p>Marcus <span>a vu .......</span> 1200 films</p></li>
 				<li><p>Maxime <span>a suivi ......</span>Yanis</p></li>
 				<li><p>Jeremi <span>a suivi ......</span>Simon</p></li>
 				<li><p>Yanis <span>a vus .......</span>150 films</p></li>
 				<li><p>Simon <span>a vus .......</span>300 films</p></li> -->
-				<?php endforeach ?>
-			</ul>
-		</section>
+			<?php endforeach ?>
+		</ul>
+	</section>
 
 </div>
 
@@ -120,24 +112,24 @@ CONNEXION REQUISE
 					<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'ai déjà vu""><i class="fa fa-eye" aria-hidden="true"></i></a>
 					<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id_film']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 				</div>
-			<?php } else { ?>
-				<div class="btn">
-					<a><i class="fa fa-eye" aria-hidden="true"></i></a>
-					<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-				</div>
-			<?php } ?>
-		</article>
-	<?php endforeach ?>
-</section>
+				<?php } else { ?>
+					<div class="btn">
+						<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+						<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+					</div>
+					<?php } ?>
+				</article>
+			<?php endforeach ?>
+		</section>
 
-<div id="TopDisc">
-	<!-- section le top de la communauté -->
-	<section id="TopCom">
-		<h2>le top de la communauté</h2>
-		<ul>
-			<?php //var_dump($topUsers) ?>
-			<?php foreach ($topUsers as $valeur): ?>
-				<li><p><a href="<?= $this->url('profil', ['id' => $valeur['id_user']]) ?>"><?= $valeur['username'] ?></a><span> a vu ......... </span><?= $valeur['topUser']?> films</p>
+		<div id="TopDisc">
+			<!-- section le top de la communauté -->
+			<section id="TopCom">
+				<h2>le top de la communauté</h2>
+				<ul>
+					<?php //var_dump($topUsers) ?>
+					<?php foreach ($topUsers as $valeur): ?>
+						<li><p><a href="<?= $this->url('profil', ['id' => $valeur['id_user']]) ?>"><?= $valeur['username'] ?></a><span> a vu ............ </span><?= $valeur['topUser']?> films</p>
 				<!-- <li><p>haji <span>a vu .......</span>5300 films</p></li>
 				<li><p>marcus <span>a vu .......</span>1200 films</p></li>
 				<li><p>maxime <span>a vu .......</span>500 films</p></li>
@@ -163,30 +155,23 @@ CONNEXION REQUISE
 				</a>
 				<?php if(isset($_SESSION['user'])) { ?>
 					<div class="btn">
-						<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'ai déjà vu !""><i class="fa fa-eye" aria-hidden="true"></i></a>
+						<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'ai déjà vu""><i class="fa fa-eye" aria-hidden="true"></i></a>
 						<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 					</div>
-				<?php } else { ?>
-					<div class="btn">
-						<a><i class="fa fa-eye" aria-hidden="true"></i></a>
-						<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-					</div>
-				<?php } ?>
-			</article>
-		<?php endforeach ?>
-	</section>
-</div>
+					<?php } else { ?>
+						<div class="btn">
+							<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+							<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+						</div>
+						<?php } ?>
+					</article>
+				<?php endforeach ?>
+			</section>
+		</div>
 
 
-<?php $this->stop('main_content') ?>
+		<?php $this->stop('main_content') ?>
 
-<?php $this->start('javascripts') ?>
-<?php if(!isset($_SESSION['user'])) { ?>
-<script>
-	$('.btn').on('click', function() {
-		$('#message').slideUp( 300 ).show().delay( 3000 ).fadeOut( 500 );
-	})
-</script>
-<?php } ?>
-
-<?php $this->stop('javascripts') ?>
+		<?php $this->start('javascripts') ?>
+		
+		<?php $this->stop('javascripts') ?>

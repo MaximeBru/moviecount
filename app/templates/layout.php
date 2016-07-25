@@ -21,7 +21,7 @@
 				<ul>
 					<?php
 					
-						if (!isset($_SESSION['user'])){ 
+					if (!isset($_SESSION['user'])){ 
 						echo '<li><a href="'. $this->url('connexion').'">connexion</a></li>';
 						echo '<li><a href="' . $this->url('inscription'). '">inscription</a></li>';
 					} else {
@@ -39,22 +39,52 @@
 				<form method="POST" action="<?= $this->url('recherche') ?>">
 					<input id="search" type="search" name="recherche" required>
 					<label for="search">
-					<i class="fa fa-search" aria-hidden="true"></i>
-				</form>
-			</div>
-		</nav>
-	</header>
+						<i class="fa fa-search" aria-hidden="true"></i>
+					</form>
+				</div>
+			</nav>
+		</header>
 
-	<main >
-		<!--affiche des nouveautés-->
-		<?= $this->section('main_content') ?>
+		<main >
+
+		<div id="messageCo" style="display: none;background:red;color:white;">
+			CONNEXION REQUISE
+		</div>
+
+		<div id="messageAdd" style="display: none;background:green;color:white;">
+			Ajout OK
+		</div>
+
+			<!--affiche des nouveautés-->
+			<?= $this->section('main_content') ?>
 		</main>
 
-	<footer>
-		<p>MovieCount ©</p>
-	</footer>
+		<footer>
+			<p>MovieCount ©</p>
+		</footer>
 
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-		<?= $this->section('javascripts') ?>
-</body>
-</html>
+
+		<!-- Message De Connexion -->
+		<?php if(!isset($_SESSION['user'])) { ?>
+			<script>
+				$('.btn').on('click', function() {
+					$('#messageCo').slideUp( 300 ).show().delay( 3000 ).fadeOut( 500 );
+				})
+			</script>
+		<?php } ?>
+			<?= $this->section('javascripts') ?>
+
+
+		<!-- Message D'Add Ok -->
+		<?php if(isset($_SESSION['user'])) { ?>
+			<script>
+				$('.btn').on('click', function() {
+					$('#messageAdd').slideUp( 300 ).show().delay( 3000 ).fadeOut( 500 );
+				})
+			</script>
+		<?php } ?>
+			<?= $this->section('javascripts') ?>
+
+		</body>
+		</html>

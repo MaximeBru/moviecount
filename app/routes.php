@@ -8,13 +8,9 @@
 		['GET|POST', '/profil/[i:id]', 'Default#profil', 'profil'],
 		['GET', '/decouvrir', 'Default#decouvrir', 'decouvrir'],
 		['GET', '/dejavu/[i:id_user]/[i:id_film]', 'Default#dejavu', 'dejavu'],
+		['GET', '/dejavu_vu', 'Default#dejavu_vu', 'dejavu_vu'],
 		['GET', '/jveuxvoir/[i:id_user]/[i:id_film]', 'Default#jveuxvoir', 'jveuxvoir'],
 		['GET', '/vote/[i:note]/[i:id_user]/[i:id_film]', 'Default#vote', 'vote'],
-		// ['GET', '/vote2/[i:id_user]/[i:id_film]', 'Default#vote2', 'vote2'],
-		// ['GET', '/vote3/[i:id_user]/[i:id_film]', 'Default#vote3', 'vote3'],
-		// ['GET', '/vote4/[i:id_user]/[i:id_film]', 'Default#vote4', 'vote4'],
-		// ['GET', '/vote5/[i:id_user]/[i:id_film]', 'Default#vote5', 'vote5'],
-
 
 		# Login, Inscription etc
 		['GET|POST', '/inscription', 'Login#inscription', 'inscription'],

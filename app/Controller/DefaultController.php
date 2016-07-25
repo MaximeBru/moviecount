@@ -84,15 +84,21 @@ class DefaultController extends Controller
 	{
 		$manager = new FilmManager();
 		$manager->voir($id_user, $id_film, 1);
-		$_SESSION['message'] = "Merci";
 		$this->redirectToRoute('home');
+		
+	}
+
+	public function dejavu_vu()
+	{
+		$manager = new FilmManager();
+		$manager->voir($_GET['id_user'], $_GET['id_film'], 1);
+		$this->showJson([true]);
 	}
 
 	public function jveuxvoir($id_user, $id_film)
 	{
 		$manager = new FilmManager();
 		$manager->voir($id_user, $id_film, 2);
-		$_SESSION['message'] = "Merci";
 		$this->redirectToRoute('home');
 	}
 
@@ -100,7 +106,6 @@ class DefaultController extends Controller
 	{
 		$manager = new FilmManager();
 		$manager->vote($id_user, $id_film, $note);
-		$_SESSION['message'] = "Merci";
 		$this->redirectToRoute('home');
 	}
 
