@@ -65,7 +65,9 @@ class DefaultController extends Controller
 		$crew3 = (array)$tab3['crew'];
 		$films_assoc = [];
 		foreach ($crew3 as $value2) {
-			$films_assoc[] = $manager->getFilmAssoc($value2->id);
+			if(!in_array( $manager->getFilmAssoc($value2->id) , $films_assoc )) {
+				$films_assoc[] = $manager->getFilmAssoc($value2->id);
+			}
 		}
 		//$films_assoc = $manager->getRandomFilms(5);
 		
@@ -100,7 +102,13 @@ class DefaultController extends Controller
 		$manager = new FilmManager();
 		$manager->voir($id_user, $id_film, 1);
 		$this->redirectToRoute('home');
-		
+	}
+
+	public function jveuxvoir($id_user, $id_film)
+	{
+		$manager = new FilmManager();
+		$manager->voir($id_user, $id_film, 2);
+		$this->redirectToRoute('home');
 	}
 
 	public function dejavu_vu()
@@ -110,12 +118,6 @@ class DefaultController extends Controller
 		$this->showJson([true]);
 	}
 
-	public function jveuxvoir($id_user, $id_film)
-	{
-		$manager = new FilmManager();
-		$manager->voir($id_user, $id_film, 2);
-		$this->redirectToRoute('home');
-	}
 
 	public function vote($note, $id_user, $id_film)
 	{

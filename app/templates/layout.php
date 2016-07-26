@@ -47,45 +47,66 @@
 
 		<main >
 
-		<!-- Message de connexion -->
-		<div id="messageCo" style="display: none;background:red;color:white;">
-			CONNEXION REQUISE
-		</div>
+			<!-- Message de connexion -->
+			<!-- <div id="messageCo">
+				<section id="messagedeco">
+					<h2>Attention !</h2>
+					<p>Vous devez vous inscrire ou vous connecter à Moviecount pour profiter de cette fonctionnalité.</p>
+				</section>
+			</div> -->
+
+			<div id="myModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<section id="">
+						<div class="modal-header">
+							<span class="close">×</span>
+							<h2>Attention !</h2>
+						</div>
+						<div class="modal-body">
+							<p>Vous devez vous inscrire ou vous connecter à Moviecount pour profiter de cette fonctionnalité.</p>
+						</div>
+					</section>
+				</div>
+			</div>
 
 		<!-- <div id="messageAdd" style="display: none;background:green;color:white;">
 			Ajout OK
 		</div> -->
 
-			<!--affiche des nouveautés-->
-			<?= $this->section('main_content') ?>
-		</main>
+		<!--affiche des nouveautés-->
+		<?= $this->section('main_content') ?>
+	</main>
 
-		<footer>
-			<p>MovieCount ©</p>
-		</footer>
+	<footer>
+		<p>MovieCount ©</p>
+	</footer>
 
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-		<!-- Message De Connexion -->
-		<?php if(!isset($_SESSION['user'])) { ?>
-			<script>
-				$('.btn').on('click', function() {
-					$('#messageCo').slideUp( 300 ).show().delay( 3000 ).fadeOut( 500 );
-				})
-			</script>
+	<!-- Message De Connexion -->
+	<?php if(!isset($_SESSION['user'])) { ?>
+		<script>
+			// $('.btn').on('click', function() {
+			// 	$('#messageCo').slideUp( 300 ).show().delay( 3000 )/*.fadeOut( 500 )*/;
+			// })
+		</script>
+
+		<script>
+			$('.btn, .rating').on('click', function() {
+				$('.modal').show();
+			});
+			$('.close').on('click', function() {
+				$('.modal').hide();
+			});
+
+			// $(document).on('click', function() {
+			// 	$('.modal').hide();
+			// })
+		</script>
+
 		<?php } ?>
-			<?= $this->section('javascripts') ?>
+		<?= $this->section('javascripts') ?>
 
-
-		<!-- Message D'Add Ok -->
-		<?php if(isset($_SESSION['user'])) { ?>
-			<script>
-				$('.btn').on('click', function() {
-					$('#messageAdd').slideUp( 300 ).show().delay( 3000 ).fadeOut( 500 );
-				})
-			</script>
-		<?php } ?>
-			<?= $this->section('javascripts') ?>
-
-		</body>
-		</html>
+	</body>
+	</html>

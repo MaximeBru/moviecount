@@ -93,18 +93,18 @@
 				<h2>Top realisateur, Acteur, Actrice</h2>
 					<!-- REAL -->
 					<article>
-						<!-- <img src="<?= $this->assetUrl('img/nolan.jpg') ?>">
-						<h3>Christopher Nolan</h3> -->
+						<img src="<?= $this->assetUrl('img/nolan.jpg') ?>">
+						<h3>Christopher Nolan</h3>
 					</article>
 					<!-- ACT -->
 					<article>
-						<!-- <img src="<?= $this->assetUrl('img/bale.jpg') ?>">
-						<h3>Christian Bale</h3> -->
+						<img src="<?= $this->assetUrl('img/bale.jpg') ?>">
+						<h3>Christian Bale</h3>
 					</article>
 					<!-- GENRE -->
 					<article>
-						<!-- <img src="<?= $this->assetUrl('img/green.jpg') ?>">
-						<h3>Eva Green</h3> -->
+						<img src="<?= $this->assetUrl('img/green.jpg') ?>">
+						<h3>Eva Green</h3>
 					</article>
 				</section>
 				<!-- ========= AWARDS ========= -->

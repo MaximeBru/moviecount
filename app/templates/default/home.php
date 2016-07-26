@@ -36,55 +36,54 @@
 			<!-- section avec video -->
 			<section id="lastRealease">
 				<h2>Dernieres sorties</h2>
-				<a href="">
-					<h3>Batman Vs Superman - Dawn Of Justice <span>2016</span></h3>
+				<a href="http://moviecount.net/detail/99">
+					<h3>Le BGG - Le Bon Gros Géant <span>2016</span></h3>
 				</a>
 
 				<div class="video-container">
-					<iframe src="//www.youtube.com/embed/1iK44Bjajh4?rel=0" frameborder="0" allowfullscreen></iframe>
+					<!-- <iframe src="//www.youtube.com/embed/1iK44Bjajh4?rel=0" frameborder="0" allowfullscreen></iframe> -->
+					<iframe src="https://www.youtube.com/embed/BDByU4jV0Vw" frameborder="0" allowfullscreen></iframe>
 				</div>
 
 				<article id="SidVid">
 					<h4>Realisateur</h4>
-					<p>Zack Znyder</p>
+					<p>Steven Spielberg</p>
 
 					<h4>Acteurs</h4>
-					<p>-Henry Cavil</p>
-					<p>-Gal Gadot</p>
-					<p>-Ben Afleck</p>
+					<p>-Rebecca Hall</p>
+					<p>-Bill Hader</p>
+					<p>-Mark Rylance</p>
 
 					<h4>Synopsis</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</p>
-						<?php if(isset($_SESSION['user'])) { ?>
+					<p>L'incroyable histoire d'une petite fille et du mystérieux géant qui va lui faire découvrir les merveilles et les dangers du Pays des Géants. Mais lorsque les méchants géants dévoreurs d'hommes envahissent le monde des humains [...]</p>
+					<?php if(isset($_SESSION['user'])) { ?>
+						<div class="btn">
+							<a href="#" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
+							<a href="#" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+						</div>
+						<?php } else { ?>
 							<div class="btn">
-								<a href="#" title="j'ai déjà vu !"><i class="fa fa-eye" aria-hidden="true"></i></a>
-								<a href="#" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+								<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+								<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
 							</div>
-							<?php } else { ?>
-								<div class="btn">
-									<a><i class="fa fa-eye" aria-hidden="true"></i></a>
-									<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-								</div>
-								<?php } ?>
-							</article>
-						</section>
+							<?php } ?>
+						</article>
+					</section>
 
-						<!-- 2eme section de la div -->
-						<section id="activity">
-							<h2>Activités de la communauté</h2>
-							<?php //var_dump($lastActivity) ?>
-							<ul>
-								<?php foreach ($lastActivity as $valeur): ?>
-									<?php 
-									if ($valeur['stat_view'] == 1){
-										$view = ' a vu ';
-									} else {
-										$view = ' veut voir ';
-									}
-									?>
-									<li><p><a href="<?= $this->url('profil', ['id' => $valeur['id_user']]) ?>"><?= $valeur['username'] ?></a><span><?= $view ?></span><a href="<?= $this->url('detail', ['id' => $valeur['id']]) ?>"><?= mb_strimwidth($valeur['titre'], 0, 17, "...") ?> </a><span>le  <?= strftime('%d/%m', strtotime($valeur['date_ajout'])) ?></span></p></li>
+					<!-- 2eme section de la div -->
+					<section id="activity">
+						<h2>Activités de la communauté</h2>
+						<?php //var_dump($lastActivity) ?>
+						<ul>
+							<?php foreach ($lastActivity as $valeur): ?>
+								<?php 
+								if ($valeur['stat_view'] == 1){
+									$view = ' a vu ';
+								} else {
+									$view = ' veut voir ';
+								}
+								?>
+								<li><p><a href="<?= $this->url('profil', ['id' => $valeur['id_user']]) ?>"><?= $valeur['username'] ?></a><span><?= $view ?></span><a href="<?= $this->url('detail', ['id' => $valeur['id']]) ?>"><?= mb_strimwidth($valeur['titre'], 0, 17, "...") ?> </a><span>le  <?= strftime('%d/%m', strtotime($valeur['date_ajout'])) ?></span></p></li>
 				<!-- <li><p>Haji <span>a suivi .......</span> Yanis</p></li>
 				<li><p>Marcus <span>a vu .......</span> 1200 films</p></li>
 				<li><p>Maxime <span>a suivi ......</span>Yanis</p></li>
