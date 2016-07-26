@@ -40,7 +40,7 @@ class DefaultController extends Controller
 	{
 		$manager = new FilmManager();
 		$film = $manager->find($id);
-
+		
 		$call = "http://api.themoviedb.org/3/movie/" . $film['id_film_api'] . "/casts?api_key=a2992ed9d3f8b932cc90a57972f676dc";
 		$json = file_get_contents($call);
 		$tab = (array)json_decode($json);
@@ -52,9 +52,24 @@ class DefaultController extends Controller
 		$tab2 = (array)json_decode($json2);
 		$genre = (array)$tab2['genres'];
 
-		$films_assoc = $manager->getRandomFilms(5);
+		$moyenne = $manager->noteMoyenne($id);
+
+		foreach ($crew as $value) {
+			if ($value->job == 'Director') {
+				$id_assoc = $value->id; break;
+			}
+		}
+		$call3 = "http://api.themoviedb.org/3/person/" . $id_assoc . "/movie_credits?api_key=a2992ed9d3f8b932cc90a57972f676dc";
+		$json3 = file_get_contents($call3);
+		$tab3 = (array)json_decode($json3);
+		$crew3 = (array)$tab3['crew'];
+		$films_assoc = [];
+		foreach ($crew3 as $value2) {
+			$films_assoc[] = $manager->getFilmAssoc($value2->id);
+		}
+		//$films_assoc = $manager->getRandomFilms(5);
 		
-		$this->show('default/detail', ['film'=>$film, 'release_date'=>$tab2['release_date'], 'genre'=>$genre, 'crew'=>$crew, 'cast'=>$cast, 'films_assoc'=>$films_assoc]);
+		$this->show('default/detail', ['film'=>$film, 'release_date'=>$tab2['release_date'], 'genre'=>$genre, 'crew'=>$crew, 'cast'=>$cast, 'moyenne'=>$moyenne, 'films_assoc'=>$films_assoc]);
 	}	
 
 	public function profil($id)

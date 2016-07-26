@@ -138,4 +138,20 @@ class FilmManager extends \W\Manager\Manager {
 		return $sth->fetchAll();
 	}
 
+	public function noteMoyenne($id_film)	// Note moyenne d'un film
+	{
+		$sql = "SELECT id_film, ROUND(avg(vote_count),1)as moyenne FROM users_stats WHERE id_film = $id_film";
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+		return $sth->fetch();
+	}
+
+	public function getFilmAssoc($id_film)
+	{
+		$sql = "SELECT id_film_api, id, titre, img FROM " . $this->table . " WHERE id_film_api = $id_film";
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+		return $sth->fetch();
+	}
+		
 }

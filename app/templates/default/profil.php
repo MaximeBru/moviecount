@@ -68,7 +68,7 @@
 				<?php foreach ($top5profil as $film): ?>
 					<article>
 						<a href="<?= $this->url('detail', ['id' => $film['id_film']]) ?>">
-							<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
+							<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="" title="<?= $film['titre'] ?>">
 							<h3><?= mb_strimwidth($film['titre'], 0, 23, "...") ?></h3>
 						</a>
 						<?php if(isset($_SESSION['user'])) { ?>
@@ -93,18 +93,18 @@
 				<h2>Top realisateur, Acteur, Actrice</h2>
 					<!-- REAL -->
 					<article>
-						<img src="<?= $this->assetUrl('img/nolan.jpg') ?>">
-						<h3>Christopher Nolan</h3>
+						<!-- <img src="<?= $this->assetUrl('img/nolan.jpg') ?>">
+						<h3>Christopher Nolan</h3> -->
 					</article>
 					<!-- ACT -->
 					<article>
-						<img src="<?= $this->assetUrl('img/bale.jpg') ?>">
-						<h3>Christian Bale</h3>
+						<!-- <img src="<?= $this->assetUrl('img/bale.jpg') ?>">
+						<h3>Christian Bale</h3> -->
 					</article>
 					<!-- GENRE -->
 					<article>
-						<img src="<?= $this->assetUrl('img/green.jpg') ?>">
-						<h3>Eva Green</h3>
+						<!-- <img src="<?= $this->assetUrl('img/green.jpg') ?>">
+						<h3>Eva Green</h3> -->
 					</article>
 				</section>
 				<!-- ========= AWARDS ========= -->

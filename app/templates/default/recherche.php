@@ -8,7 +8,7 @@
 			<?php foreach ($search as $film): ?>
 				<article>
 					<a href="<?= $this->url('detail', ['id' => $film['id']]) ?>">
-						<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
+						<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="" title="<?= $film['titre'] ?>">
 						<h3><?= mb_strimwidth($film['titre'], 0, 23, "...") ?></h3>
 					</a>
 					<?php if(isset($_SESSION['user'])) { ?>

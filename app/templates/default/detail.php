@@ -5,7 +5,7 @@
 		<!-- ======== AFFICHE FilM ======== -->
 		<article>
 			<?php //var_dump($film) ?>
-			<img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>">
+			<img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>" title="<?= $film['titre'] ?>">
 		</article>
 
 		<!-- ======== BLOC DETAILS ======== -->
@@ -64,31 +64,47 @@
 		  			<a href="<?= $this->url('vote', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id'], 'note' => 2])?>" title="Donner 2 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
 		  			<a href="<?= $this->url('vote', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id'], 'note' => 1])?>" title="Donner 1 étoile" ><i class="fa fa-star" aria-hidden="true"></i></a>
 				</div>
+			<?php } else { ?>
+				<div class="rating">
+		 			<a title="Donner 5 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
+					<a title="Donner 4 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
+		  			<a title="Donner 3 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
+		  			<a title="Donner 2 étoiles" ><i class="fa fa-star" aria-hidden="true"></i></a>
+		  			<a title="Donner 1 étoile" ><i class="fa fa-star" aria-hidden="true"></i></a>
+				</div>
 			<?php } ?>
 
+			<!-- Note moyenne -->
+			<p>Note moyenne : <?= $moyenne['moyenne'] ?></p>
 		</article>
 
 	</section>
+
 	<section id="newFilm">
 		<h2>Film Associés</h2>
+		<?php //var_dump($films_assoc) ?>
+		<?php $cpt2=0 ?>
 		<?php foreach ($films_assoc as $film): ?>
-			<article>
-				<a href="<?= $this->url('detail', ['id' => $film['id']]) ?>">
-					<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="">
-					<h3><?= mb_strimwidth($film['titre'], 0, 23, "...") ?></h3>
-				</a>
-				<?php if(isset($_SESSION['user'])) { ?>
-					<div class="btn">
-						<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'ai déjà vu !""><i class="fa fa-eye" aria-hidden="true"></i></a>
-						<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-					</div>
-				<?php } else { ?>
-					<div class="btn">
-						<a><i class="fa fa-eye" aria-hidden="true"></i></a>
-						<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
-					</div>
-				<?php } ?>
-			</article>
+			<?php if(isset($film['id'])) { ?>
+				<article>	
+					<a href="<?= $this->url('detail', ['id' => $film['id']]) ?>">
+						<img class="" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2<?= $film['img'] ?>"  alt="" title="<?= $film['titre'] ?>">
+						<h3><?= mb_strimwidth($film['titre'], 0, 23, "...") ?></h3>
+					</a>
+					<?php if(isset($_SESSION['user'])) { ?>
+						<div class="btn">
+							<a href="<?= $this->url('dejavu', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'ai déjà vu !""><i class="fa fa-eye" aria-hidden="true"></i></a>
+							<a href="<?= $this->url('jveuxvoir', ['id_user' => $_SESSION['user']['id'], 'id_film' => $film['id']])?>" title="j'veux voir !"><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+						</div>
+					<?php } else { ?>
+						<div class="btn">
+							<a><i class="fa fa-eye" aria-hidden="true"></i></a>
+							<a><i class="fa fa-check-square-o" aria-hidden="true"></i></a>
+						</div>
+					<?php } ?>
+				</article>
+				<?php $cpt2++; if($cpt2==5) break ?>
+			<?php } ?>
 		<?php endforeach ?>
 
 	</section>

@@ -47,13 +47,14 @@
 
 		<main >
 
+		<!-- Message de connexion -->
 		<div id="messageCo" style="display: none;background:red;color:white;">
 			CONNEXION REQUISE
 		</div>
 
-		<div id="messageAdd" style="display: none;background:green;color:white;">
+		<!-- <div id="messageAdd" style="display: none;background:green;color:white;">
 			Ajout OK
-		</div>
+		</div> -->
 
 			<!--affiche des nouveautés-->
 			<?= $this->section('main_content') ?>
