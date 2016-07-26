@@ -64,7 +64,7 @@
 							<h2>Attention !</h2>
 						</div>
 						<div class="modal-body">
-							<p>Vous devez vous inscrire ou vous connecter à Moviecount pour profiter de cette fonctionnalité.</p>
+							<p>Vous devez vous <a href="<?= $this->url('inscription')?>"> inscrire</a> ou vous <a href="<?= $this->url('connexion')?>">connecter</a> à Moviecount pour profiter de cette fonctionnalité.</p>
 						</div>
 					</section>
 				</div>

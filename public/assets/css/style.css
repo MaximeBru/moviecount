@@ -196,6 +196,11 @@ MESSAGE DE CONNEXION
 	text-align: center;
 }
 
+.modal-content a{
+	color: #00b4c5;
+    font-weight: 700;
+}
+
 /* Add Animation */
 @-webkit-keyframes animatetop {
     from {top:-300px; opacity:0}
